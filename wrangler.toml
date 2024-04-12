@@ -17,9 +17,10 @@ binding = "AI"
 # Bind a D1 database. D1 is Cloudflare’s native serverless SQL database.
 # Docs: https://developers.cloudflare.com/pages/functions/bindings/#d1-databases
 # [[d1_databases]]
-# binding = "DB"
-# database_name = "vectyr-db-prod"
-# database_id = "a44ce7c5-1fcb-402c-9c87-817bc41215a7"
+[[d1_databases]]
+binding = "DB"
+database_name = "prod-vectyr"
+database_id = "39d057cf-7e16-4a39-ba47-32295c33333d"
 
 # Bind a Durable Object. Durable objects are a scale-to-zero compute primitive based on the actor model.
 # Durable Objects can live for as long as needed. Use these when you need a long-running "server", such as in realtime apps.
