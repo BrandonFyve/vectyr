@@ -9,11 +9,6 @@ compatibility_flags = ["nodejs_compat"]
 # [vars]
 # MY_VARIABLE = "production_value"
 
-# Bind the Workers AI model catalog. Run machine learning models, powered by serverless GPUs, on Cloudflare’s global network
-# Docs: https://developers.cloudflare.com/pages/functions/bindings/#workers-ai
-[ai]
-binding = "AI"
-
 # Bind a D1 database. D1 is Cloudflare’s native serverless SQL database.
 # Docs: https://developers.cloudflare.com/pages/functions/bindings/#d1-databases
 # [[d1_databases]]
@@ -56,6 +51,9 @@ database_id = "39d057cf-7e16-4a39-ba47-32295c33333d"
 # service = "my-service"
 
 [[vectorize]]
-binding = "VECTOR_INDEX"
-index_name = "vector-index"
+binding = "VECTORIZE_INDEX" # available within your Worker on env.VECTORIZE_INDEX
+index_name = "vector-index-vectyr"
+
+[ai]
+binding = "AI"
 

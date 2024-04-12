@@ -11,6 +11,7 @@ interface DataPoint {
 
 export async function POST(request: NextRequest) {
   try {
+    console.log(await await getRequestContext().env.AI);
     const ai = new Ai(getRequestContext().env.AI);
 
     const body: DataPoint = await request.json();
@@ -47,14 +48,14 @@ export async function POST(request: NextRequest) {
     }
 
     const { id } = record;
-    const inserted = await getRequestContext().env.VECTOR_INDEX.upsert([
+    const inserted = await getRequestContext().env.VECTORIZE_INDEX.upsert([
       {
         id: id.toString(),
         values,
       },
     ]);
 
-    return NextResponse.json({ id, text });
+    return NextResponse.json({ id, text, inserted });
   } catch (error: any) {
     console.log(error);
     return NextResponse.json({ error: error.message }, { status: 500 });
