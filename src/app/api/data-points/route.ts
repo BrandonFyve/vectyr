@@ -11,7 +11,7 @@ interface DataPoint {
 
 export async function POST(request: NextRequest) {
   try {
-    console.log(await await getRequestContext().env.AI);
+    console.log(await await getRequestContext().env);
     const ai = new Ai(getRequestContext().env.AI);
 
     const body: DataPoint = await request.json();
